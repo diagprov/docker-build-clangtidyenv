@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+LABEL maintainer="antony@vennard.ch"
+
+RUN apk update && apk add make git musl-dev libc-dev && rm -rf /var/cache/apk/*.gz
+
+COPY clang-tidy /usr/bin/clang-tidy
+
+CMD /bin/sh
